@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 打包的时候只需要修改 runtime 值指定使用哪个服务器， debug的时候注意修改为自己电脑的ip -->
+
+
+
+<App runtime="release">
+    <runtime name="jiaboDebug">
+        <httpUrl>http://192.168.3.2:8080/truck-app/</httpUrl>
+        <socketURL>ws://192.168.3.2:8080/truck-app/server</socketURL>
+        <baiduMapKey>4lYQliQl2vlCsCSzyZ6vn3bm</baiduMapKey>
+        <login>http://test.dadachefu.com/truck/user/recommend/</login>
+        <debug>0</debug>
+        <sysversion>30</sysversion>
+        <bugtagKey>a525a8b974d8b18dead8d87b91d07c17</bugtagKey>
+        <thirdApp>
+            <appName name="wechat">
+                <appId>wx0a4b42b6f7950b18</appId>
+                <appSecret>565ca4d8e57c3e17951649fe7a1f48c8</appSecret>
+                <redirectUri></redirectUri>
+            </appName>
+            <appName name="qq">
+                <appId>1104966178</appId>
+                <appSecret></appSecret>
+                <redirectUri></redirectUri>
+            </appName>
+            <appName name="weibo">
+                <appId>157932499</appId>
+                <appSecret>5997db2b839cf1fd96f0b42926cb7ee8</appSecret>
+                <redirectUri>http://www.dadachefu.com</redirectUri>
+            </appName>
+        </thirdApp>
+    </runtime>
+
+
+    <runtime name="localDebug">
+        <httpUrl>http://192.168.3.12:8180/truck/</httpUrl>
+        <socketURL>ws://192.168.3.12:8180/truck/server</socketURL>
+        <baiduMapKey>4lYQliQl2vlCsCSzyZ6vn3bm</baiduMapKey>
+        <login>http://test.dadachefu.com/truck/user/recommend/</login>
+        <debug>0</debug>
+        <sysversion>30</sysversion>
+        <bugtagKey>a525a8b974d8b18dead8d87b91d07c17</bugtagKey>
+        <thirdApp>
+            <appName name="wechat">
+                <appId>wx0a4b42b6f7950b18</appId>
+                <appSecret>565ca4d8e57c3e17951649fe7a1f48c8</appSecret>
+                <redirectUri></redirectUri>
+            </appName>
+            <appName name="qq">
+                <appId>1104966178</appId>
+                <appSecret></appSecret>
+                <redirectUri></redirectUri>
+            </appName>
+            <appName name="weibo">
+                <appId>157932499</appId>
+                <appSecret>5997db2b839cf1fd96f0b42926cb7ee8</appSecret>
+                <redirectUri>http://www.dadachefu.com</redirectUri>
+            </appName>
+        </thirdApp>
+    </runtime>
+
+    <runtime name="paydebug">
+        <httpUrl>http://120.26.68.10:9999/truck/</httpUrl>
+        <socketURL>ws://120.26.68.10:9999/truck/server</socketURL>
+        <baiduMapKey>4lYQliQl2vlCsCSzyZ6vn3bm</baiduMapKey>
+        <login>http://test.dadachefu.com/truck/user/recommend/</login>
+        <debug>1</debug>
+        <sysversion>30</sysversion>
+        <bugtagKey>a525a8b974d8b18dead8d87b91d07c17</bugtagKey>
+        <thirdApp>
+            <appName name="wechat">
+                <appId>wx0a4b42b6f7950b18</appId>
+                <appSecret>565ca4d8e57c3e17951649fe7a1f48c8</appSecret>
+                <redirectUri></redirectUri>
+            </appName>
+            <appName name="qq">
+                <appId>1104966178</appId>
+                <appSecret></appSecret>
+                <redirectUri></redirectUri>
+            </appName>
+            <appName name="weibo">
+                <appId>157932499</appId>
+                <appSecret>5997db2b839cf1fd96f0b42926cb7ee8</appSecret>
+                <redirectUri>http://www.dadachefu.com</redirectUri>
+            </appName>
+        </thirdApp>
+    </runtime>
+
+    <runtime name="debug">
+        <httpUrl>http://120.26.85.230:8080/truck/</httpUrl>
+        <socketURL>ws://120.26.85.230:8080/truck/server</socketURL>
+        <baiduMapKey>4lYQliQl2vlCsCSzyZ6vn3bm</baiduMapKey>
+        <login>http://test.dadachefu.com/truck/user/recommend/</login>
+        <debug>0</debug>
+        <sysversion>30</sysversion>
+        <bugtagKey>a525a8b974d8b18dead8d87b91d07c17</bugtagKey>
+        <thirdApp>
+            <appName name="wechat">
+                <appId>wx0a4b42b6f7950b18</appId>
+                <appSecret>565ca4d8e57c3e17951649fe7a1f48c8</appSecret>
+                <redirectUri></redirectUri>
+            </appName>
+            <appName name="qq">
+                <appId>1104966178</appId>
+                <appSecret></appSecret>
+                <redirectUri></redirectUri>
+            </appName>
+            <appName name="weibo">
+                <appId>157932499</appId>
+                <appSecret>5997db2b839cf1fd96f0b42926cb7ee8</appSecret>
+                <redirectUri>http://www.dadachefu.com</redirectUri>
+            </appName>
+        </thirdApp>
+    </runtime>
+    <runtime name="release">
+        <httpUrl>http://api.hcxdi.com/truck/</httpUrl>
+        <socketURL>ws://api.hcxdi.com:80/truck/server</socketURL>
+        <baiduMapKey>4lYQliQl2vlCsCSzyZ6vn3bm</baiduMapKey>
+        <login>http://api.hcxdi.com/truck/user/recommend/</login><!--分享那里的-->
+        <debug>1</debug>
+        <sysversion>30</sysversion><!--用于版本更新，暂时还没有使用-->
+        <bugtagKey>a525a8b974d8b18dead8d87b91d07c17</bugtagKey>
+        <thirdApp>
+            <appName name="wechat">
+                <appId>wx0a4b42b6f7950b18</appId>
+                <appSecret>565ca4d8e57c3e17951649fe7a1f48c8</appSecret>
+                <redirectUri></redirectUri>
+            </appName>
+            <appName name="qq">
+                <appId>1104966178</appId>
+                <appSecret></appSecret>
+                <redirectUri></redirectUri>
+            </appName>
+            <appName name="weibo">
+                <appId>157932499</appId>
+                <appSecret>5997db2b839cf1fd96f0b42926cb7ee8</appSecret>
+                <redirectUri>http://www.dadachefu.com</redirectUri>
+            </appName>
+        </thirdApp>
+    </runtime>
+</App>
+
