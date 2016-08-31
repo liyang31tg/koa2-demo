@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流</title>
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #container{
+            position: relative;
+            border: 1px solid red;
+        }
+        .box{
+            padding: 5px;
+            float: left;
+
+        }
+        .box_image{
+            padding: 5px;
+            border: 1px solid #cccccc;
+            box-shadow: 0 0 5px #cccccc;
+            border-radius: 5px;
+
+
+        }
+
+        .box_image img{
+            width: 150px;
+            height: auto;
+
+        }
+
+
+    </style>
+</head>
+
+{% macro imageField(name) %}
+<div class="box">
+    <div class="box_image">
+
+        <img src="/images/0.jpg">
+    </div>
+</div>
+{% endmacro %}
+
+<body>
+    <div id="container">
+        {% for i in items %}
+        <div class="box">
+            <div class="box_image">
+
+                <img src="/images/{{i}}.jpg">
+            </div>
+        </div>
+        {% endfor %}
+        <div style="clear: both;">
+        </div>
+    </div>
+</body>
+
+<script>
+    window.onload = function(){
+        imageLocation("container","box")
+        window.onscroll = function(){
+
+            if (checkFlag()){
+
+                let cParent = document.getElementById("container")
+                for (let i = 0 ;i < 20 ; i ++ ){
+                    //这里暂时就不些了,反正就是要追加模块
+//                    let td = document.createElement("div");
+//                    td.textContent =
+//                    cParent.appendChild(td)
+                }
+
+
+
+            }
+
+        }
+    }
+
+    function checkFlag(){
+        var cparent = document.getElementById("container")
+        var ccontent = getChildrenElement(cparent,"box")
+        var lastContentHeight = ccontent[ccontent.length - 1].offsetTop
+        //下面的是为了浏览器兼容
+        var scrollTop = document.documentElement.scrollTop||document.body.scrollTop
+        var pageHeight = document.documentElement.clientHeight || document.body.clientHeight
+
+
+        return lastContentHeight < (scrollTop + pageHeight)
+
+    }
+
+
+
+
+
+    function imageLocation(parent,content){
+        var cparent = document.getElementById(parent);
+        var cContent = getChildrenElement(cparent,content)
+        var imageW = cContent[0].offsetWidth  //offsetWidth代表对象的可视宽度
+        var cols = Math.floor(document.documentElement.clientWidth/imageW)
+        cparent.style.cssText = "width:"+imageW*cols+"px;margin: 0 auto;";
+
+        let boxHeightAttr = []
+        for (let i =0 ;i<cContent.length;i++){
+            if (i<cols){//第一行
+                console.log("111111:"+i)
+                boxHeightAttr[i]=cContent[i].offsetHeight
+            }else{
+                let minHeight = Math.min.apply(null,boxHeightAttr)
+                let minIndex = getMinIndex(boxHeightAttr,minHeight);
+                cContent[i].style.position = "absolute";
+                cContent[i].style.top = minHeight + "px";
+
+                cContent[i].style.left = cContent[minIndex].offsetLeft + "px";
+                boxHeightAttr[minIndex] = boxHeightAttr[minIndex] + cContent[i].offsetHeight;
+
+            }
+
+        }
+
+    }
+
+    function getMinIndex(boxHeightAttr,minHeight){
+
+
+        for(let i = 0 ;i<boxHeightAttr.length;i++){
+            if (boxHeightAttr[i] == minHeight){
+
+                return i
+            }
+
+        }
+
+    }
+
+    function  getChildrenElement(parent,content){
+        let contentArr = [];
+        let allConent = parent.getElementsByTagName("div");
+        for (let i = 0 ; i < allConent.length ;i ++ ){
+            if (allConent[i].className == content){
+                contentArr.push(allConent[i]);
+            }
+        }
+        return contentArr;
+    }
+
+
+</script>
+</html>

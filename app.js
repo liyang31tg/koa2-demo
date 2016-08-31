@@ -13,6 +13,7 @@ const onerror       = require('koa-onerror')
 
 
 const users         = require('./routes/users')
+const indexR        = require('./routes/index')
 //开启日志服务
 app.use(logger())
 onerror(app)
@@ -22,7 +23,7 @@ app.use(convert(staticserver(__dirname + "/public")))
 app.use(convert(views(__dirname + '/views', { map: {html: 'nunjucks' }})))
 
 
-
+router.use('/index',indexR.routes(),indexR.allowedMethods());
 router.use('/users', users.routes(), users.allowedMethods());
 
 router.get("/",async (ctx,next) => {
