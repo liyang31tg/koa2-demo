@@ -8,27 +8,29 @@ const convert       = require('koa-convert')
 const staticserver  = require("koa-static")
 const Router        = require("koa-router")
 const router        = Router()
+const logger        = require('koa-logger')
+const onerror       = require('koa-onerror')
 
 
-const users         = require('./routes/users');
-
+const users         = require('./routes/users')
+//开启日志服务
+app.use(logger())
+onerror(app)
 //开启public的静态服务
 app.use(convert(staticserver(__dirname + "/public")))
 //app.use(convert(router))
 app.use(convert(views(__dirname + '/views', { map: {html: 'nunjucks' }})))
 
-// response
-app.use(async (ctx, next) => {
-    const start = new Date();
-    await next();
-    const ms = new Date() - start;
-    console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
-});
+
 
 router.use('/users', users.routes(), users.allowedMethods());
 
 router.get("/",async (ctx,next) => {
-    await ctx.render("parent.html",{title:"tt"})
+    await ctx.render("parent.html",{items:[{ title: "foo", id: 1 }, { title: "bar", id: 2}],foods:{
+        'ketchup': '5 tbsp',
+        'mustard': '1 tbsp',
+        'pickle': '0 tbsp'
+    }})
 });
 
 

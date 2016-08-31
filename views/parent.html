@@ -1,12 +1,23 @@
-{% block header %}
-This is the default content
-{% endblock %}
-<section class="left">
-    {% block left %}{% endblock %}
-</section>
 
-<section class="right">
-    {% block right %}
-    This is more content
-    {% endblock %}
-</section>
+{% macro field(name, value='', type='text') %}
+<div >
+    <input type="{{ type }}" name="{{ name }}"
+           value="{{ value | escape }}" />
+</div>
+{% endmacro %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+</head>
+<body>
+    <ul>
+        {% for ingredient, amount in foods %}
+        {{ field('user') }}
+        {{ field('pass', type='password') }}
+        {% endfor %}
+    </ul>
+</body>
+</html>
