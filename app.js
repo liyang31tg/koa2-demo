@@ -15,9 +15,7 @@ const users         = require('./routes/users');
 //开启public的静态服务
 app.use(convert(staticserver(__dirname + "/public")))
 //app.use(convert(router))
-app.use(convert(views(__dirname + '/views', {
-    extension: 'html'
-})))
+app.use(convert(views(__dirname + '/views', { map: {html: 'nunjucks' }})))
 
 // response
 app.use(async (ctx, next) => {
@@ -27,18 +25,13 @@ app.use(async (ctx, next) => {
     console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
 });
 
-//router.use('/users', users.routes(), users.allowedMethods());
+router.use('/users', users.routes(), users.allowedMethods());
 
-router.get("/s",(ctx,next) => {
-
-    ctx.body="shenm";
+router.get("/",async (ctx,next) => {
+    await ctx.render("parent.html",{title:"tt"})
 });
 
-router.get('/', async  (ctx, next) => {
 
-    await ctx.render("index",{});
-
-});
 
 app
     .use(router.routes())

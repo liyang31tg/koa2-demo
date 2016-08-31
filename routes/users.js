@@ -2,9 +2,9 @@
  * Created by liyang on 16/8/27.
  */
 const user_router = require("koa-router")()
-user_router.get("/",function(ctx,next){
+user_router.get("/",async (ctx,next) => {
 
-    ctx.render("users")
+    await ctx.render("users")
 
 });
 
