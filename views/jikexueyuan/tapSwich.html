@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tab切换</title>
+	<script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		font-size: 12px;
+
+	}
+	.tab{
+		width: 298px;
+		height: 98px;
+		margin: 10px;
+		border:1px solid #eee;
+		overflow: hidden;
+	}
+
+	.tab-title{
+
+		height: 27px;
+		position: relative;
+		background: #f7f7f7;
+	}
+
+	.tab-title ul {
+		position: absolute;
+		width: 301px;
+		left: -1px;
+
+	}
+
+	.tab-title li{
+		float: left;
+		width: 58px;
+		height: 26px;
+		line-height: 26px;
+		text-align: center;
+		padding: 0 1px;
+		overflow: hidden;
+		border-bottom:1px solid #eee;
+
+
+	}
+
+.tab-title li a:link,.tab-title li a:visited{
+	text-decoration: none;
+
+	color: #000;
+}
+
+.tab-title li a:hover{
+	color: #f90;
+	font-weight: 700;
+
+}
+
+.tab-title li.select{
+	background: #fff;
+	border-bottom-color: #fff;
+	border-left: 1px solid #eee;
+	border-right: 1px solid #eee;
+	padding: 0;
+
+}
+
+.tab-content .tabct{
+	margin: 10px 10px 10px 19px;
+
+
+}
+
+.tab-content .tabct ul li{
+	float: left;
+	width: 134px;
+	height: 25px;
+	overflow: hidden;
+
+}
+
+
+
+	</style>
+
+</head>
+<body>
+	<div class="tab" id="tab">
+		<div class="tab-title" id="tab-title">
+			<ul>
+				<li class="select">
+					<a href="#">公告</a>
+
+				</li>
+				<li>
+					<a href="#">规则</a>
+
+				</li>
+				<li>
+					<a href="#">论坛</a>
+
+				</li>
+				<li>
+					<a href="#">安全</a>
+
+				</li>
+				<li>
+					<a href="#">公益</a>
+
+				</li>
+
+			</ul>
+			
+
+		</div>
+
+		<div class="tab-content" id="tab-content">
+
+			<div class="tabct" style="display:block">
+				<ul>
+					<li >
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+
+				</ul>
+
+			</div>
+			<div class="tabct" style="display:none"> 
+				<ul>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+
+				</ul>
+
+			</div>
+			<div class="tabct" style="display:none">
+				<ul>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+
+				</ul>
+
+			</div>
+			<div class="tabct" style="display:none">
+				<ul>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+
+				</ul>
+
+			</div>
+			<div class="tabct" style="display:none">
+				<ul>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+					<li>
+						<a href="#">把钱拿</a>
+
+					</li>
+
+				</ul>
+
+			</div>
+
+
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		console.log("ffff");
+  		$(window).on("load",function(){
+ 			console.log("ggggg");
+ 		})
+
+ 	})
+	$(document).ready(function(){
+		$(window).on("load",function(){
+
+			console.log("asdf");
+
+		})
+
+	})
+
+</script>
+
+</html>

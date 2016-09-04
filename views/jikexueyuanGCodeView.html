@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>极客学院G码兑换页面布局实现</title>
+
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0;
+		}
+		body{
+			background: #f1f1f1;
+		}
+		a{
+
+			text-decoration: none;
+		}
+
+		ul{
+			list-style: none;
+		}
+		i{
+			font-style: normal;
+		}
+		.w-1000{
+			width: 1000px;
+			margin: 0 auto;
+			
+		}
+		.ucenter .ucenter-left{
+			float: left;
+			width: 226px;
+			min-height: 760px;
+			background: #fff;
+		}
+		.ucenter-left .ucenter-l-header{
+			margin: 20px;
+			text-align: center;
+
+		}
+		.ucenter-l-header .ucenter-headericon{
+			margin: 0 auto;
+			width: 140px;
+			height: 140px;
+
+		}
+		.ucenter-l-header .ucenter-headericon img{
+			width: 140px;
+			height: 140px;
+			border-radius: 70px;
+
+		}
+
+		.ucenter-l-header .ucenter-name{
+			padding: 15px 0px;
+			font-size: 18px;
+			line-height: 1.2em;
+
+		}
+		.ucenter-l-header .ucenter-viptime{
+			font-size: 12px;
+
+		}
+		.originbtn{
+			display: block;
+			/*margin-top: 10px;*/
+			border:1px solid #ff7600;
+			color: #ff7600;
+			border-radius: 5px;
+			text-align: center;
+
+		}
+
+		.originbtn:hover{
+			background: #ff7600;
+			color: #000;
+
+		}
+
+		.ucenter-left .ucenter-l-column{
+			margin: 30px;
+			display: inline-block;
+
+
+		}
+
+		.ucenter-left .ucenter-l-column li{
+			float: left;
+			padding: 15px 0;
+			width: 100%;
+			line-height: 1.2em;
+			font-size: 16px;
+			text-align: center;
+
+
+		}
+
+		.ucenter-left .ucenter-l-column-block li:hover{
+				background: #f1f1f1;
+				border-radius: 2px;
+
+		}
+
+		.ucenter-left .ucenter-l-column-block li a{
+			color: #101213;
+
+		}
+
+		.ucenter-right{
+			float: right;
+			width: 750px;
+			min-height: 760px;
+			background: #fff;
+
+		}
+
+		.ucenter-right .ucenter-r-nav{
+			height: 44px;
+			border-bottom: 2px solid #f1f1f1;
+
+		}
+		.ucenter-r-nav .ucenter-r-nav-g{
+			padding-left: 10px;
+			line-height: 44px; 
+
+		}
+
+		.ucenter-r-nav .ucenter-r-nav-g span{
+			padding-left: 10px;
+			font-size: 18px;
+			color: #101213;
+			border-left: 2px solid #1dd243
+			
+		}
+
+		.ucenter-right .ucenter-r-content{
+			margin: 20px;
+			height: auto;
+			display: inline-block;
+
+		}
+
+		
+		.greenbtn{
+			margin: 20px;
+			display: inline-block;
+			border:1px solid #1de37b;
+			color: #1de37b;
+			padding: 5px 20px;
+			border-radius: 5px;
+
+		}
+
+		.greenbtn:hover{
+			background: #1de37b;
+
+			color: #000;
+		}
+
+
+
+
+
+
+
+	</style>
+</head>
+<body>
+	<div class="U-content">
+		<div class="ucenter w-1000">
+			<div class="ucenter-left">
+				<div class="ucenter-l-header">
+					<div class="ucenter-headericon">
+						
+						<img src="/images/1.jpg">
+						
+					</div>
+					<p class="ucenter-name">liyang</p>
+					<p class="ucenter-viptime">年会员,<br/>2015-5-6到期</p>
+					<p class="ucenter-vipbtn"><a href="#" class="originbtn">VIP会员续费</a></p>
+				</div>
+
+				<div class="ucenter-l-column">
+					<ul class="ucenter-l-column-block">
+						<li><a href="#"><i class="icon-course">我的课程</i></a></li> 
+						<li><a href="#"><i class="icon-question">课程回答</i></a></li>
+						<li><a href="#"><i class="icon-account">我的帐户</i></a></li>
+						<li><a href="#"><i class="icon-setting">个人设置</i></a></li>
+						<li><a href="#"><i class="icon-uppwd">修改密码</i></a></li>
+						<li><a href="#"><i class="icon-freevip">免费VIP</i></a></li>
+
+						<li><a href="#"><i class="icon-buyvip">购买VIP</i></a></li>
+						<li><a href="#"><i class="icon-gvip">G码兑换</i></a></li>
+						
+
+					</ul>
+
+				</div>
+
+				
+			</div>
+			<div class="ucenter-right">
+
+				<div class="ucenter-r-nav">
+					<div class="ucenter-r-nav-g">
+						<span class="">兑换G码</span>
+					</div>
+					<div class="ucenter-r-content ucenter-r-gvip">
+						<p class="gvip-font">"G码"是饥渴需要vip阿斯顿就分开了咖啡</p>
+					</div>
+					<div class="gvip-input">
+						<span class = "">G码：</span>
+						<div class="input-box"><input type="text" name="gcode"></div>
+					</div>
+					<p class="gvip-btn">
+						<a href="#" class="greenbtn">兑换VIP</a>
+					</p>
+				</div>
+			</div>
+
+
+		</div>	
+	
+
+
+	</div>
+	
+</body>
+</html>

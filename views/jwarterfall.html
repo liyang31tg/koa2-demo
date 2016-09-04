@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery实现瀑布流</title>
+	<script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
+	<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	.box{
+		position: relative;
+		float: left;
+
+	}
+	.content{
+		padding: 10px;
+		border: 1px solid #cccccc;
+		box-shadow:  0 0 5px #cccccc;
+		border-radius: 5px;
+	}
+	.content img{
+		width: 190px;
+		height: auto;
+
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		{%for i in items%}
+		<div class="box">
+			<div class="content">
+				<img src="/images/{{i}}.jpg">
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+	
+</body>
+<script type="text/javascript">
+ 	$(document).ready(function(){
+ 		$(window).on("load",function(){
+ 			var dataImage = {"data":[{"src":"1.jpg"},{"src":"2.jpg"},{"src":"3.jpg"},{"src":"4.jpg"},{"src":"5.jpg"},{"src":"6.jpg"},{"src":"7.jpg"}]}
+ 			imgLocation();
+
+ 			window.onscroll = function(){
+ 				console.log(scrollside())
+ 				if (scrollside()){
+ 					/**
+ 					 * 这里显示不出来，我也不知道什么原因，以后再说吧，不在这里浪费时间了
+ 					 * @param  {[type]} index    [description]
+ 					 * @param  {[type]} value){ 						var     box11 [description]
+ 					 * @return {[type]}          [description]
+ 					 */
+ 					$.each(dataImage.data,function(index,value){
+ 						var box11 = $("<div>").addClass("box").appendTo($("#container"));
+ 						var content11 = $("<div>").addClass("content").appendTo(box11);
+ 						var image = $("<img>").attr("src","/images/"+$(value).attr("src")).appendTo(content11);
+ 						console.log("/images/"+$(value).attr("src"))
+ 						console.log(image);
+
+
+ 					})
+ 					imgLocation()
+
+ 				}
+
+ 			}
+
+
+ 		})
+
+
+ 	})
+
+ 	function scrollside(){
+ 		var boxs = $(".box")
+ 		var lastboxHeight = boxs.last().get(0).offsetTop+Math.floor(boxs.last().height()/2);
+ 		var documentHeight = $(document).width();
+ 		var scrollHeight = $(window).scrollTop();
+ 		console.log("lastboxHeight:"+lastboxHeight);
+ 		console.log("documentHeight:"+documentHeight);
+ 		console.log("scrollHeight:"+scrollHeight);
+ 		return (lastboxHeight < scrollHeight + documentHeight)? true:false;
+
+ 	}
+
+
+ 	/**
+ 	 * 图片摆放逻辑
+ 	 * @return {[type]} [description]
+ 	 */
+ 	function imgLocation(){
+ 		var box = $(".box")
+ 		var boxWidth = box.eq(0).width()
+ 		var num = Math.floor($(window).width()/boxWidth)
+ 		var boxAttr = []
+ 		box.each(function(index,value){
+ 			var boxHeight = box.eq(index).height()
+ 			if (index<num){
+ 				boxAttr[index] = boxHeight
+
+ 			}else{
+ 				var minBoxHeight = Math.min.apply(null,boxAttr);
+ 				var minboxIndex = $.inArray(minBoxHeight,boxAttr);
+ 				$(value).css({
+ 					"position":"absolute",
+ 					"top":minBoxHeight,
+ 					"left":box.eq(minboxIndex).position().left,
+
+ 				})
+ 				boxAttr[minboxIndex] += box.eq(index).height()
+
+ 			}
+
+
+ 		})
+
+ 	}
+	
+
+</script>
+</html>

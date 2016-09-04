@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>weui-index(九宫格)</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="/css/weui.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/jquery-weui.min.css">
+</head>
+<body>
+<div class="weui_grids">
+	{% for d in data.griddata %}
+  <a href="{{d.url}}" class="weui_grid js_grid" data-id="button">
+    <div class="weui_grid_icon">
+      <img src="/images/{{d.img}}" alt="">
+    </div>
+    <p class="weui_grid_label">
+      {{d.content}}
+    </p>
+  </a>
+  {% endfor %}
+ 
+  
+</div>
+	
+</body>
+<script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="/js/city-picker.min.js"></script>
+<script type="text/javascript" src="/js/swiper.min.js"></script>
+</html>
