@@ -10,58 +10,58 @@
 		.bgcc{
       color: #ccc;
     }
-	</style>
+  </style>
 </head>
 <body>
 
-<a id="btn1" href="javascript:;" class="weui_btn weui_btn_primary sl">普通提示框</a>
-<a id="btn2" href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_primary">自定义标题</a>
-<a id="btn3" href="javascript:;" class="weui_btn weui_btn_warn">确认</a>
-<a id="btn4" href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_warn">确认</a>
-<a id="btn5" href="javascript:;" class="weui_btn weui_btn_default">显示遮罩</a>
-<a  id="btn6" href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_default">显示action</a>
-<div class="button_sp_area">
-  <a id="btn7" href="javascript:;" class="weui_btn weui_btn_plain_default">显示toast</a>
-  <a id="btn8" href="javascript:;" class="weui_btn weui_btn_plain_primary">顶部提示</a>
+  <a id="btn1" href="javascript:;" class="weui_btn weui_btn_primary sl">普通提示框</a>
+  <a id="btn2" href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_primary">自定义标题</a>
+  <a id="btn3" href="javascript:;" class="weui_btn weui_btn_warn">确认</a>
+  <a id="btn4" href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_warn">确认</a>
+  <a id="btn5" href="javascript:;" class="weui_btn weui_btn_default">显示遮罩</a>
+  <a  id="btn6" href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_default">显示action</a>
+  <div class="button_sp_area">
+    <a id="btn7" href="javascript:;" class="weui_btn weui_btn_plain_default">显示toast</a>
+    <a id="btn8" href="javascript:;" class="weui_btn weui_btn_plain_primary">顶部提示</a>
 
-  <a id="btn9" href="javascript:;" class="weui_btn weui_btn_mini weui_btn_primary">按钮</a>
-  <a id="btn10" href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">按钮</a>
-</div>
+    <a id="btn9" href="javascript:;" class="weui_btn weui_btn_mini weui_btn_primary">按钮</a>
+    <a id="btn10" href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">按钮</a>
+  </div>
 </body>
 <script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="/js/jquery-weui.min.js"></script>
 <script type="text/javascript" src="/js/city-picker.min.js"></script>
 <script type="text/javascript" src="/js/swiper.min.js"></script>
 <script type="text/javascript">
-$(function(){
-  
-  $("#btn1").on("click",function(){
+  $(function(){
+    
+    $("#btn1").on("click",function(){
       $.alert("普通提示框");
-  });
-  $("#btn2").on("click",function(){
+    });
+    $("#btn2").on("click",function(){
       $.alert("自定义的消息内容", "自定义的标题");
-  });
-  $("#btn3").on("click",function(){
+    });
+    $("#btn3").on("click",function(){
       $.alert("自定义的消息内容",  function() {
   //点击确认后的回调函数
   
-    console.log("回调");
+  console.log("回调");
+});
     });
-  });
-  $("#btn4").on("click",function(){
+    $("#btn4").on("click",function(){
       $.alert("自定义的消息内容", "标题", function() {
   //点击确认后的回调函数
+});
     });
-  });
 
-  $("#btn5").on("click",function(){
+    $("#btn5").on("click",function(){
      $.showLoading("加载中...");
-  
-  });
+     
+   });
 
-  $("#btn6").on("click",function(){
-    $.actions({
-      actions:[
+    $("#btn6").on("click",function(){
+      $.actions({
+        actions:[
         {
           text:"编辑",
           onClick:function(){
@@ -75,20 +75,20 @@ $(function(){
           },
           className:"bgcc"
         }
-      ]
-    })
+        ]
+      })
       
-  });
+    });
 
-  $("#btn7").on("click",function(){
-    $.toast("显示成功")
+    $("#btn7").on("click",function(){
+      $.toast("显示成功")
+
+    })
+    $("#btn8").on("click",function(){
+      $.toptip("操作成功","success");
+
+    })
 
   })
-  $("#btn8").on("click",function(){
-    $.toptip("操作成功","success");
-
-  })
-
-})
 </script>
 </html>

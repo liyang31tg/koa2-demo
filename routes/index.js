@@ -134,6 +134,18 @@ indexRouter.get("/testjqweui",async (ctx,next)=>{
                     {
                      title:"bottomTabbar",
                      url:"/views/weui-tabbar.html"
+                    },
+                    {
+                     title:"下啦刷新",
+                     url:"/views/weui-pull2Refresh.html"
+                    },
+                    {
+                     title:"栅格",
+                     url:"/views/weui-col.html"
+                    },
+                    {
+                      title:"photoBrowser",
+                      url:"/views/photoBrowser.html"
                     }
                     ]
     for (let i = 0 ;i<titles.length; i++){

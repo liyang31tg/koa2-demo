@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>weui-buttons</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="/css/weui.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/jquery-weui.min.css">
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<a id= "btn1" href="javascript:;" class="weui_btn weui_btn_primary sl">图片浏览器</a>
+	<a id= "btn2" href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_primary">带文案的图片浏览器</a>
+
+	
+</body>
+<script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="/js/city-picker.min.js"></script>
+<script type="text/javascript" src="/js/swiper.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var pb1 = $.photoBrowser({
+			items: [
+			"/images/swiper-1.jpg",
+			"/images/swiper-2.jpg",
+			"/images/swiper-3.jpg"
+			]
+		});
+		var pb2 = $.photoBrowser({
+			items: [
+			{
+				image: "/images/11.jpg",
+				caption: "描述文案"
+			},
+			{
+				image: "/images/12.jpg",
+				caption: "描述文案"
+			},
+			{
+				image: "/images/13.jpg",
+				caption: "描述文案"
+			}
+			]
+		});
+		$("#btn1").on("click",function(){
+			pb1.open();
+		})
+		$("#btn2").on("click",function(){
+			pb2.open();
+		})
+
+
+
+	})
+
+</script>
+</html>
