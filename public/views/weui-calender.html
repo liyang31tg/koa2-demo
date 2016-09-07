@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>weui-calender</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="/css/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery-weui.min.css">
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div class="weui_cells">
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>日期</p>
+            </div>
+            <div class="weui_cell_ft" style="border: 1px solid #ccc;margin: 0;padding: 0">
+                <input id="my-input" type="text" style="text-align: center" />
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>中文</p>
+            </div>
+            <div class="weui_cell_ft">
+                <input id="my-formate-input" type="text" style="text-align: center" />
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>多选</p>
+            </div>
+            <div class="weui_cell_ft">
+                <input id="my-multiple-input" type="text" style="text-align: center" />
+            </div>
+        </div>
+    </div>
+    <div style="height: 60px;text-align: center;margin-top: 50px">
+        <p>内敛日历</p>
+    </div>
+    <div>
+        <input id="date3" type="text" style="text-align: center" />
+        <div id="inline-calendar"></div>
+    </div>
+</body>
+<script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="/js/city-picker.min.js"></script>
+<script type="text/javascript" src="/js/swiper.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    // $.alert("asdf");
+    $("#my-input").calendar();
+    $("#my-formate-input").calendar({
+        dateFormat: "yyyy年mm月dd日"
+    });
+    $("#my-multiple-input").calendar({
+        multiple: true
+    });
+
+    $("#inline-calendar").calendar({
+        container: "#inline-calendar",
+        input: "#date3"
+    });
+
+
+})
+</script>
+
+</html>

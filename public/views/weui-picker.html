@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>weui-picker</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="/css/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery-weui.min.css">
+    <style type="text/css">
+    .sl {
+        margin: 10px 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="weui_cells">
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>称呼</p>
+            </div>
+            <div class="weui_cell_ft">
+                <input type="text" id="picker">
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>日期时间</p>
+            </div>
+            <div class="weui_cell_ft">
+                <input type="text" id="datetime-picker">
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>选择城市</p>
+            </div>
+            <div class="weui_cell_ft">
+                <input type="text" id="city-picker">
+            </div>
+        </div>
+        <div class="weui_cell">
+            <a id="btna" class="weui_btn weui_btn_primary">显示通知</a>
+        </div>
+        <div class="weui_cell">
+            <a id="popBtn" class="weui_btn weui_btn_primary">popup</a>
+        </div>
+        <div class="weui_cell">
+            <a id="pop-bottom" class="weui_btn weui_btn_primary">popup-bottom</a>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>选择城市</p>
+            </div>
+            <div class="weui_cell_ft">
+                <input type="text" id="mobile">
+            </div>
+        </div>
+    </div>
+    <!-- 弹出的全屏覆盖模式 -->
+    <div id="about" class="weui-popup-container">
+        <div class="weui-popup-overlay">这里感什么</div>
+        <div class="weui-popup-modal">
+            你的内容放在这里...
+            <a id="closePopUp" class="weui_btn weui_btn_primary close-popup">关闭</a>
+        </div>
+    </div>
+    <!-- 底部弹出 -->
+    <div id="about1" class="weui-popup-container popup-bottom">
+        <div class="weui-popup-overlay">
+            <p>这里干什么</p>
+        </div>
+        <div class="weui-popup-modal">
+            <p>你的内容放在这里...</p>
+            <p>你的内容放在这里...</p>
+            <p>你的内容放在这里...</p>
+            <p>你的内容放在这里...</p>
+            <p>你的内容放在这里...</p>
+            <p>你的内容放在这里...</p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="/js/jquery-weui.min.js"></script>
+<script type="text/javascript" src="/js/city-picker.min.js"></script>
+<script type="text/javascript" src="/js/swiper.min.js"></script>
+<script type="text/javascript">
+$("#picker").picker({
+    title: "请选择手机型号",
+    cols: [{
+            textAlign: 'center',
+            values: ['赵', '钱', '孙', '李', '周', '吴', '郑', '王']
+                //如果你希望显示文案和实际值不同，可以在这里加一个displayValues: [.....]
+        }, {
+            textAlign: 'center',
+            values: ['杰伦', '磊', '明', '小鹏', '燕姿', '菲菲', 'Baby']
+        }, {
+            textAlign: 'center',
+            values: ['先生', '小姐']
+        }
+
+    ]
+
+})
+
+$("#datetime-picker").datetimePicker();
+
+$("#city-picker").cityPicker({
+    title: "请选择收货地址"
+});
+
+
+$("#btna").on("click", function() {
+    $.notification({
+        title: "i am is a title",
+        text: "i miss you",
+        media: "<img src = '/images/5.jpg'></img>",
+        data: "什么玩意",
+        onClick: function(data) {
+
+            $.alert(data);
+        },
+
+        onClose: function(data) {
+            $.alert("关闭")
+        }
+
+    })
+
+})
+
+$("#popBtn").on("click", function() {
+    $("#about").popup();
+
+})
+
+$("#pop-bottom").on("click", function() {
+    $("#about1").popup();
+
+})
+
+
+
+$("#mobile").select({
+    title: "选择手机",
+    multi: true,
+    onChange: function(d) {
+        console.log(d.titles);
+        console.log(d.values);
+    },
+    items: [{
+        title: "iPhone 3GS",
+        value: "001",
+    }, {
+        title: "iPhone 5",
+        value: "002",
+    }, {
+        title: "iPhone 5S",
+        value: "003",
+    }, {
+        title: "iPhone 6",
+        value: "004",
+    }, {
+        title: "iPhone 6S",
+        value: "005",
+    }, {
+        title: "iPhone 6P",
+        value: "006",
+    }, {
+        title: "iPhone 6SP",
+        value: "007",
+    }, {
+        title: "iPhone SE",
+        value: "008",
+    }, {
+        title: "iPhone 7",
+        value: "009"
+    }]
+});
+</script>
+
+</html>

@@ -98,6 +98,9 @@ indexRouter.get("/testjq",async (ctx,next)=>{
     await ctx.render("testJQ.html")
 
 })
+
+
+
 /**
  * jq weui 的测试演示使用
  * @param  {[type]} "/testjq" [description]
@@ -145,7 +148,17 @@ indexRouter.get("/testjqweui",async (ctx,next)=>{
                     },
                     {
                       title:"photoBrowser",
-                      url:"/views/photoBrowser.html"
+                      url:"/views/weui-photoBrowser.html"
+                    }
+                    ,
+                    {
+                      title:"日历",
+                      url:"/views/weui-calender.html"
+                    }
+                    ,
+                    {
+                      title:"picker",
+                      url:"/views/weui-picker.html"
                     }
                     ]
     for (let i = 0 ;i<titles.length; i++){
