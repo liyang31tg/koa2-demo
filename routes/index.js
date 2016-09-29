@@ -160,6 +160,11 @@ indexRouter.get("/testjqweui",async (ctx,next)=>{
                       title:"picker",
                       url:"/views/weui-picker.html"
                     }
+                    ,
+                    {
+                      title:"testWebsocket",
+                      url:"/views/test/testWebSocket.html"
+                    }
                     ]
     for (let i = 0 ;i<titles.length; i++){
         let m = {
