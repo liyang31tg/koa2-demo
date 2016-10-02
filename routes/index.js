@@ -2,7 +2,9 @@
  * Created by liyang on 16/8/31.
  */
 
-const  indexRouter = require("koa-router")()
+import  IndexRouter from  "koa-router"
+
+const indexRouter   = new IndexRouter()
 
 /**
  * 普通代码实现的瀑布流
@@ -190,4 +192,5 @@ indexRouter.get("/testjqweui",async (ctx,next)=>{
 
 
 
-module.exports = indexRouter
+
+export default indexRouter

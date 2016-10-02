@@ -1,19 +1,18 @@
 /**
  * Created by liyang on 16/8/24.
  */
-const Koa           = require('koa')
+import Koa 					 from 'koa'
+import views 				 from 'koa-views'
+import convert 				 from 'koa-convert'
+import staticserver 		 from 'koa-static'
+import Router 				 from 'koa-router'
+import logger       		 from 'koa-logger'
+import onerror     			 from 'koa-onerror'
+import users       		 	 from './routes/users'
+import indexR      	 		 from './routes/index'
+
 const app           = new Koa()
-const views         = require('koa-views')
-const convert       = require('koa-convert')
-const staticserver  = require("koa-static")
-const Router        = require("koa-router")
-const router        = Router()
-const logger        = require('koa-logger')
-const onerror       = require('koa-onerror')
-
-
-const users         = require('./routes/users')
-const indexR        = require('./routes/index')
+const router        = new Router()
 //开启日志服务
 app.use(logger())
 onerror(app)
