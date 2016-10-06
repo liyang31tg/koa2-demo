@@ -1,11 +1,26 @@
 /**
  * Created by liyang on 16/8/27.
  */
-const user_router = require("koa-router")()
-user_router.get("/",async (ctx,next) => {
 
-    await ctx.render("users.html")
+import User_router from "koa-router"
+import UserAction from '../action/UserAction'
+
+const user_router = new User_router()
+
+user_router.get("/", async(ctx, next) => {
+
+
+
+    const userAction = new UserAction();
+    const user = await userAction.getUser(ctx);
+
+
+    console.log(user)
+
+    ctx.body = user
+
 
 });
 
-module.exports = user_router;
+
+export default user_router

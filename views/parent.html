@@ -1,11 +1,4 @@
 
-{% macro field(name, value='', type='text') %}
-<div >
-    <input type="{{ type }}" name="{{ name }}"
-           value="{{ value | escape }}" />
-</div>
-{% endmacro %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +6,11 @@
     <title>测试</title>
 </head>
 <body>
-    <ul>
-        {% for ingredient, amount in foods %}
-        {{ field('user') }}
-        {{ field('pass', type='password') }}
-        {% endfor %}
-    </ul>
+    <form method="post" action="/" enctype="multipart/form-data">
+        <input id = "name1" type="text" name="name"><br/>
+        <input id = "fia" type="file" name = "file1"><br/>
+        <input id = "fia" type="file" name = "file2"><br/>
+        <input type="submit" value="提交">
+    </form>
 </body>
 </html>
