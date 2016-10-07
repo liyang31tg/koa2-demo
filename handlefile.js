@@ -28,7 +28,6 @@ function aa(path1) {
                         const current_path = process.cwd()
                         let tmpPP = "/public/file/upload"
                         if (path1 != null){
-                            console.log("tesf")
                             tmpPP = path1
                         }
                         const path = current_path + tmpPP
