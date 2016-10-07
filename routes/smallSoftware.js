@@ -9,7 +9,7 @@ smallSoftwareRouter.get("/getTest",(ctx,next)=>{
 })
 
 smallSoftwareRouter.post("/postTest",(ctx,next)=>{
-
+	
 	ctx.body = ctx.request.fields
 })
 
