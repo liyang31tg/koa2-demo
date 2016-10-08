@@ -22,29 +22,41 @@ function aa(path1) {
                 const result = await new Promise((resolve, reject) => {
                     fs.readFile(fPath, (err, data) => {
                         if (err) {
-                            console.log("错误处理")
-                            reject({ status: 1, message: "文件读取失败" })
+                            const errorMsg = "文件读取失败"
+                            console.log(errorMsg)
+                            reject({ status: 1, message: errorMsg })
+                            ctx.throw(errorMsg)
+                            return
                         }
                         const current_path = process.cwd()
                         let tmpPP = "/public/file/upload"
-                        if (path1 != null){
+                        if (path1 != null) {
                             tmpPP = path1
                         }
                         const path = current_path + tmpPP
                         fs.writeFile(path + "/" + tmpTmpName, data, err => {
                             if (err) {
-                                console.log("错误处理")
-                                reject({ status: 1, message: "文件写入失败" })
-                            }
-                            fs.unlink(fPath, err => {
-                                if (err) {
-                                    console.log("错误处理")
-                                    reject({ status: 1, message: "原来文件删除失败" })
-                                }
-                                console.log("文件操作成功")
-                                resolve({ status: 0, message: "文件操作成功" })
+                                const errorMsg = "文件写入失败"
+                                console.log(errorMsg)
+                                reject({ status: 1, message: errorMsg })
+                                ctx.throw(errorMsg)
+                                return
 
-                            })
+                            } else {
+                                fs.unlink(fPath, err => {
+                                    if (err) {
+                                        const errorMsg = "原来文件删除失败"
+                                        console.log(errorMsg)
+                                        reject({ status: 1, message: errorMsg })
+                                        ctx.throw(errorMsg)
+                                        return
+                                    }
+                                    console.log("文件操作成功")
+                                    resolve({ status: 0, message: "文件操作成功" })
+
+                                })
+                            }
+
                         })
                     })
                 })
