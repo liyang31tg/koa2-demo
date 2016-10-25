@@ -47,12 +47,22 @@ app.use(async(ctx, next) => {
 
 
 app.use(convert(new logger()))
-onerror(app)
+// onerror(app)
 
 
 app.use(convert(new body()))
 
 app.use(handleffile("/public/file/upload/image"))
+
+/**
+ * 用来验证上面的文件处理时异步的，并且同步执行
+ * @param  {[type]} (ctx, next          [description]
+ * @return {[type]}       [description]
+ */
+app.use(async (ctx, next)=>{
+   await next()
+})
+
 
 
 
@@ -92,6 +102,7 @@ router.post("/", async(ctx, next) => {
     console.log(ctx.request.header)
     console.log(ctx.request.query)
     console.log(ctx.request.files)
+    console.log(ctx.request.fields)
     console.log(ctx.request.fields.file1[0].path)
     await ctx.render("parent.html", {
         items: [{ title: "foo", id: 1 }, { title: "bar", id: 2 }],
@@ -111,7 +122,10 @@ app
     .use(router.routes())
     .use(router.allowedMethods());
 
+app.on("error",(err,ctx)=>{
 
+    console.log(err)
+})
 
 app.listen(3001)
 
