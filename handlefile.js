@@ -26,9 +26,6 @@ function aa(path1) {
                 //处理文件
             for (let file of tmpFiles) {
                 const fSize = file.size
-                console.log(typeof fSize)
-                console.log(fSize instanceof Number)
-                console.log(fSize)
                 if (fSize <= 0) {
                     continue
                 }

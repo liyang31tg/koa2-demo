@@ -18,7 +18,8 @@
     "koa-static": "^2.0.0",
     "koa-views": "5.0.2",
     "nunjucks": "2.5.2",
-    "runkoa": "^1.5.2"
+    "runkoa": "^1.5.2",
+    "Keygrip":"1.0.1"
   },
   "devDependencies": {
     "nodemon": "^1.9.1"

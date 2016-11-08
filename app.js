@@ -10,7 +10,7 @@ import logger from 'koa-logger'
 import onerror from 'koa-onerror'
 import mongo from 'koa-mongo'
 import body from 'koa-better-body'
-
+import Keygrip from 'keygrip'
 // import handleffile from 'koa-handluploadfile'
 import handleffile from './handlefile.js'
 
@@ -25,6 +25,8 @@ import { KoaErr } from './help.js'
 
 
 const app = new Koa()
+app.keys = new Keygrip(['im a newer secret', 'i like turtle'], 'sha256')
+
 const router = new Router()
     //开启日志服务
 
@@ -60,6 +62,8 @@ app.use(handleffile("/public/file/upload/image"))
  * @return {[type]}       [description]
  */
 app.use(async (ctx, next)=>{
+
+
    await next()
 })
 
@@ -77,6 +81,7 @@ app.use(convert(views(__dirname + '/views', { map: { html: 'nunjucks' } })))
  * 数据库的使用配置
  * @type {String}
  */
+/*
 app.use(convert(mongo({
     uri: 'mongodb://localhost:27017/test', //or url
     max: 100,
@@ -84,6 +89,7 @@ app.use(convert(mongo({
     timeout: 30000,
     log: false
 })))
+*/
 
 
 router.use('/index', indexR.routes(), indexR.allowedMethods());
@@ -91,19 +97,13 @@ router.use('/users', users.routes(), users.allowedMethods());
 router.use("/small", smallSoftwareRouter.routes(), smallSoftwareRouter.allowedMethods())
 
 router.get("/", async ctx => {
-    console.log(ctx)
-    console.log(ctx.request.header.token)
-    console.log(ctx.request.query)
     await ctx.render("parent.html")
-
 })
 
 router.post("/", async(ctx, next) => {
-    console.log(ctx.request.header)
-    console.log(ctx.request.query)
-    console.log(ctx.request.files)
-    console.log(ctx.request.fields)
-    console.log(ctx.request.fields.file1[0].path)
+     var name = ctx.request.fields.name
+     ctx.cookies.set("name",name,{signed:true})
+     console.log(ctx.cookies.get("name"))
     await ctx.render("parent.html", {
         items: [{ title: "foo", id: 1 }, { title: "bar", id: 2 }],
         foods: {
@@ -122,9 +122,10 @@ app
     .use(router.routes())
     .use(router.allowedMethods());
 
+//具体处理系统抛出的错误
 app.on("error",(err,ctx)=>{
 
-    console.log(err)
+    console.log(err.status)
 })
 
 app.listen(3001)
