@@ -13,6 +13,10 @@ import body from 'koa-better-body'
 import Keygrip from 'keygrip'
 // import handleffile from 'koa-handluploadfile'
 import handleffile from './handlefile.js'
+/**
+ * 数据库mysql orm初始化
+ */
+import DB from './DB/initDB'
 
 
 //private
@@ -29,6 +33,7 @@ app.keys = new Keygrip(['im a newer secret', 'i like turtle'], 'sha256')
 
 const router = new Router()
     //开启日志服务
+    
 
 
 app.use(async(ctx, next) => {
@@ -62,8 +67,6 @@ app.use(handleffile("/public/file/upload/image"))
  * @return {[type]}       [description]
  */
 app.use(async (ctx, next)=>{
-
-
    await next()
 })
 
@@ -97,6 +100,17 @@ router.use('/users', users.routes(), users.allowedMethods());
 router.use("/small", smallSoftwareRouter.routes(), smallSoftwareRouter.allowedMethods())
 
 router.get("/", async ctx => {
+    var now = Date.now();
+    console.log(now)
+    var dog = await DB.Pet.create({
+        id: 'd-' + now,
+        name: 'Odie',
+        gender: false,
+        birth: '2008-08-08',
+        createdAt: now,
+        updatedAt: now
+    });
+    console.log('created: ' + JSON.stringify(dog));
     await ctx.render("parent.html")
 })
 
