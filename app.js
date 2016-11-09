@@ -16,7 +16,7 @@ import handleffile from './handlefile.js'
 /**
  * 数据库mysql orm初始化
  */
-import DB from './DB/initDB'
+import model from './db/model'
 
 
 //private
@@ -25,7 +25,6 @@ import indexR from './routes/index'
 import smallSoftwareRouter from './routes/smallSoftware'
 
 
-import { KoaErr } from './help.js'
 
 
 const app = new Koa()
@@ -42,21 +41,8 @@ app.use(async(ctx, next) => {
     console.log("加入后续逻辑")
 })
 
-/**
- * @param  {
- * 使用自定义错误
- * @return {[type]}
- */
-app.use(async(ctx, next) => {
-    ctx.Err = new KoaErr()
-    await next()
-})
-
-
 app.use(convert(new logger()))
 // onerror(app)
-
-
 app.use(convert(new body()))
 
 app.use(handleffile("/public/file/upload/image"))
@@ -100,17 +86,24 @@ router.use('/users', users.routes(), users.allowedMethods());
 router.use("/small", smallSoftwareRouter.routes(), smallSoftwareRouter.allowedMethods())
 
 router.get("/", async ctx => {
-    var now = Date.now();
-    console.log(now)
-    var dog = await DB.Pet.create({
-        id: 'd-' + now,
-        name: 'Odie',
-        gender: false,
-        birth: '2008-08-08',
-        createdAt: now,
-        updatedAt: now
+    // var now = Date.now();
+    // console.log(now)
+    var dog = await model.user.create({
+        email:"liyang200971@163.com",
+        passwd: "123",
+        name: "liyang",
+        gender: true
     });
-    console.log('created: ' + JSON.stringify(dog));
+    // console.log('created: ' + JSON.stringify(dog));
+    console.log(model.user)
+    console.log(model.pet)
+
+    var cat = await model.pet.create({
+        name:'tom',
+        age:26,
+        sex:'13'
+    });
+    
     await ctx.render("parent.html")
 })
 

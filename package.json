@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon bin/start.js",
+    "initdb": "node bin/initdb.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

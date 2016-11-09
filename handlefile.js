@@ -1,11 +1,6 @@
 import fs from 'fs'
 /**
  * 这个中间件已经上传到npm了，貌似koa2还不支持中间件是es6的语法，，所以啦你懂的，暂时不能用啦
- * 
- * 
- * 
- * 
- * 
  * @param  {[type]} path1 [description]
  * @return {[type]}       [description]
  */
